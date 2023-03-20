@@ -1,4 +1,22 @@
-/* Lesson 2 */
+/* Lesson 4 */
+const userInfo = 
+    {
+    name: 'Jose Martinez',
+    photo: 'images/PXL_20221027_223759921.jpg',
+    favoriteFoods:[
+        'caldo de res',
+        'homemade hamburger helper', 
+        'pork chile verde',
+        'chineese food'],
+    hobbies:[
+        'Legos',
+        '3D Printing',
+        'Video Games'],
+    placesLived:[
+        {place: 1, place:'1017 S 19th St', length:'1.5 years'},
+        {place: 2, place:'19854 Montclair Way', length:'5 Years'}]
+    
+    };
 
 /* VARIABLES */
 
@@ -6,7 +24,7 @@
 let myName = 'Jose Martinez'
 
 // Step 2: place the value of the name variable into the HTML file (hint: document.querySelector())
-document.querySelector('#name').textContent = myName;
+document.querySelector('#name').textContent = userInfo.name;
 
 
 // Step 3: declare and instantiate a variable to hold the current year
@@ -29,7 +47,8 @@ let myImg = 'images/PXL_20221027_223759921.jpg';
 
 // Step 7: place the value of the picture variable into the HTML file (hint: document.querySelector().setAttribute())
 
-document.querySelector('img').setAttribute('src', myImg )
+document.querySelector('img').setAttribute('src', userInfo.photo)
+document.querySelector('img').setAttribute('alt', userInfo.name)
 
 
 
@@ -41,7 +60,7 @@ let foods = ['caldo de res', ' homemade hamburger helper', ' pork chile verde', 
 
 
 // Step 2: place the values of the favorite foods variable into the HTML file
-document.querySelector('#food').innerHTML = foods;
+
 
 // Step 3: declare and instantiate a variable to hold another favorite food
 let otherFood = ' cheese burger';
@@ -51,20 +70,20 @@ foods.push(otherFood);
 
 
 // Step 5: repeat Step 2
-document.querySelector('#food').innerHTML = foods;
+// document.querySelector('#food').innerHTML = foods;
 
 // Step 6: remove the first element in the favorite foods array
 foods.shift();
 
 // Step 7: repeat Step 2
-document.querySelector('#food').innerHTML = foods;
+// document.querySelector('#food').innerHTML = foods;
 
 // Step 8: remove the last element in the favorite foods array
 foods.pop();
 
 
 // Step 7: repeat Step 2
-document.querySelector('#food').innerHTML = foods;
+// document.querySelector('#food').innerHTML = foods;
 
 // Declare a new variable to hold information about yourself and assign an empty object to the variable ( hint: {} )
 
@@ -84,9 +103,4 @@ document.querySelector('#food').innerHTML = foods;
 
 // Add additional object literals with appropriate values to the placesLived array for each place you've lived
 
-const userInfo = [
-    {name: 'Jose Martinez',
-    photo: document.querySelector('img').setAttribute('src', myImg ),
-    favoriteFoods: 'caldo de res', ' homemade hamburger helper', ' pork chile verde', ' chineese food' }
-];
 

@@ -1,3 +1,4 @@
+"use strict";
 /* Lesson 3 */
 
 /* FUNCTIONS */
@@ -51,13 +52,13 @@
 //adding
 function add(number1, number2)
 {
-    return parseInt(number1) + parseInt(number2);
+    return number1 + number2;
 }
 
 function addnumbers()
 {
-    let addEndTwo = document.getElementById("addend1").value
-    let addEndOne = document.getElementById("addend2").value
+    let addEndTwo = parseFloat(document.getElementById("addend1").value);
+    let addEndOne = parseFloat(document.getElementById("addend2").value);
 
     const sum = add(addEndOne, addEndTwo);
     
@@ -67,17 +68,17 @@ function addnumbers()
 document.getElementById("addNumbers").addEventListener("click", addnumbers);
 
 //subtract
-function subtract(number1, number2)
+const subtract = function(number1, number2)
 {
     return number1 - number2;
 }
 
 const subtractCal = function Subnumbers()
 {
-    let minuEnd = document.getElementById("minuend").value;
-    let subtrahEnd = document.getElementById('subtrahend').value;
+    let minuEnd = parseFloat(document.getElementById("minuend").value)
+    let subtrahEnd = parseFloat(document.getElementById('subtrahend').value)
 
-    const total = subtract(minuEnd, subtrahEnd);
+    const total = subtract (minuEnd, subtrahEnd);
     
     document.getElementById('difference').value = total;
     
@@ -90,8 +91,8 @@ const multiply = (number1 , number2) => number1 * number2;
 
 const calculation = () =>
 {
-    let factorEndOne = document.getElementById("factor1").value;
-    let factorEndTwo = document.getElementById('factor2').value;
+    let factorEndOne = parseFloat(document.getElementById("factor1").value);
+    let factorEndTwo = parseFloat(document.getElementById('factor2').value);
 
     const total = multiply(factorEndOne, factorEndTwo);
     
@@ -104,8 +105,8 @@ const devide = (number1, number2) => number1 / number2;
 
 const divition = () => 
 {
-    let dividendEndOne = document.getElementById("dividend").value;
-    let divisorEndTwo = document.getElementById('divisor').value;
+    let dividendEndOne = parseFloat(document.getElementById("dividend").value);
+    let divisorEndTwo = parseFloat(document.getElementById('divisor').value);
 
     const total = devide(dividendEndOne, divisorEndTwo)
 
@@ -119,7 +120,6 @@ document.getElementById('divideNumbers').addEventListener('click', divition);
 
 // year date 
 const dateTime = new Date().getFullYear();
-console.log(dateTime);
 
 document.getElementById("year").innerHTML = dateTime;
 
