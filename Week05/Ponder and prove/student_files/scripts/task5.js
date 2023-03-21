@@ -134,11 +134,11 @@ async function getTemples(){
     const temple = await fetch("https://byui-cse.github.io/cse121b-course/week05/temples.json");
     if (temple.ok){
         templeList = await temple.json()
-        sortBy(templeList);
+        output(templeList);
     }
 }
 
-// getTemples();
+getTemples();
 
 //step 7
 function reset(){
@@ -146,20 +146,30 @@ function reset(){
 }
 
 // step 8
-function sortBy(list){
+function sortBy(){
     reset();
     let selectValue = document.getElementById('sortBy').value;
 
     if (selectValue === 'templeNameAscending'){
-        output(list);
+        output(templeList);
     }
     else if (selectValue === 'templeNameDescending'){
-        const sortedList =  list.reverse();
+        const sortedList =  templeList.reverse();
         console.log(sortedList);
         output(sortedList);
     }
+    
+    // if (e.target.value === 'templeNameAscending') {
+    //     let sorted = templeList.sort(function(a,b) {return a.templeName>b.templeName ? 1 : -1});
         
+    //     return output(sorted);
+    
+    //   }else if (e.target.value === 'templeNameDescending') {
+    //     let sorted = templeList.sort(function(a,b) {return b.templeName>a.templeName ? 1 : -1});
+        
+    //     return output(sorted);
+    //   };
         
 }
     
-document.querySelector("#sortBy").addEventListener('change', getTemples());
+document.querySelector("#sortBy").addEventListener('change', sortBy);
