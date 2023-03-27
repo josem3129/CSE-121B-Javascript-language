@@ -20,7 +20,7 @@
 
 // Step 2: Use switch, case and break to set the message variable to the day of the week as a string (e.g. Sunday, Monday, etc.) using the day of week variable declared in Step 2 above
 
-const dateTime = new Date().getDay()
+const dateTime = new Date().getDay();
 let message = "";
 
 if (dateTime === 1){
@@ -142,34 +142,24 @@ getTemples();
 
 //step 7
 function reset(){
-    document.getElementById('temples').innerHTML = "";
+    document.getElementById('temples').innerHTML = '';
 }
-
-// step 8
-function sortBy(){
+//step 8
+function sortBy(e) {
+   
     reset();
-    let selectValue = document.getElementById('sortBy').value;
-
-    if (selectValue === 'templeNameAscending'){
-        output(templeList);
-    }
-    else if (selectValue === 'templeNameDescending'){
-        const sortedList =  templeList.reverse();
-        console.log(sortedList);
-        output(sortedList);
-    }
     
-    // if (e.target.value === 'templeNameAscending') {
-    //     let sorted = templeList.sort(function(a,b) {return a.templeName>b.templeName ? 1 : -1});
-        
-    //     return output(sorted);
+    if (e.target.value === 'templeNameAscending') {
+      let sorted = templeList.sort(function(a,b) {return a.templeName>b.templeName ? 1 : -1});
+      
+      return output(sorted);
+  
+    }else if (e.target.value === 'templeNameDescending') {
+      let sorted = templeList.sort(function(a,b) {return b.templeName>a.templeName ? 1 : -1});
+      
+      return output(sorted);
+    };
     
-    //   }else if (e.target.value === 'templeNameDescending') {
-    //     let sorted = templeList.sort(function(a,b) {return b.templeName>a.templeName ? 1 : -1});
-        
-    //     return output(sorted);
-    //   };
-        
-}
-    
+};
+//step 9    
 document.querySelector("#sortBy").addEventListener('change', sortBy);
